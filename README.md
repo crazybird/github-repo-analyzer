@@ -1,36 +1,38 @@
-# GitHub Repo Analyzer
+# 🔍 GitHub Repo Analyzer
 
-A simple CLI tool to analyze GitHub repositories and find contribution opportunities.
+Find GitHub contribution opportunities automatically.
 
 ## Features
 
-- Search for repos with "good first issue" labels
-- Find documentation fixes
-- Identify trending projects
-- Filter by language, stars, and activity
+- 🔎 Search for "good first issues" across repositories
+- 📅 Filter by language, date range, and labels
+- ⚡ GitHub Action for automated weekly scans
+- 📊 Perfect for maintainers and new contributors
 
-## Installation
+## Quick Start
 
-```bash
-pip install github-repo-analyzer
-```
-
-## Usage
+### CLI Usage
 
 ```bash
 # Find good first issues in Python repos
-gha search --language python --label "good first issue"
+python analyzer.py search --language python --days 7
 
 # Find documentation fixes
-g ha docs --min-stars 1000
+python analyzer.py search --label documentation --days 30
+```
 
-# Analyze a specific repo
-g ha analyze owner/repo
+### GitHub Action
+
+```yaml
+- uses: crazybird/github-repo-analyzer@v1
+  with:
+    language: 'python'
+    days: '7'
 ```
 
 ## Support
 
-If this tool helps you, consider supporting development:
+If this tool helps you find your next contribution, consider supporting development:
 
 **ETH:** `0xE1854bE3A859F1B9B40814d9711E7d5d2cFE9C80`
 

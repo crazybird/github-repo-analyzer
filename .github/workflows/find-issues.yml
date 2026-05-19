@@ -1,0 +1,22 @@
+name: Find Good First Issues
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Weekly on Monday
+  workflow_dispatch:
+
+jobs:
+  find-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Find issues
+        run: python analyzer.py search --language python --days 7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

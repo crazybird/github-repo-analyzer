@@ -1,0 +1,22 @@
+name: 'Good First Issue Finder'
+description: 'Find good first issues across GitHub repositories'
+author: 'Open Source Contributor'
+branding:
+  icon: 'search'
+  color: 'green'
+
+inputs:
+  language:
+    description: 'Programming language to filter by'
+    required: false
+    default: ''
+  days:
+    description: 'Number of days to look back'
+    required: false
+    default: '30'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: python ${{ github.action_path }}/analyzer.py search --days ${{ inputs.days }} ${{ inputs.language && format('--language {0}', inputs.language) || '' }}
+      shell: bash
