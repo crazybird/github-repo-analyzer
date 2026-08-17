@@ -17,6 +17,16 @@ Tired of scrolling through GitHub trying to find beginner-friendly issues? This 
 
 ## 🚀 Quick Start
 
+### Installation
+
+Make sure Python 3.8 or newer is installed. Then install the project using:
+
+```bash
+pip install -e .
+```
+
+After installation, you can use the `gha` command to analyze GitHub repositories.
+
 ### CLI
 
 ```bash
